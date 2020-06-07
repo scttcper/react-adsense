@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 type Props = {
   className?: string;
@@ -21,7 +21,7 @@ export const Adsense = ({
   format = 'auto',
   responsive = 'false',
 }: Props) => {
-  useEffect(() => {
+  React.useEffect(() => {
     if (window) {
       ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
     }

@@ -1,10 +1,10 @@
 {
   "name": "@ctrl/react-adsense",
   "version": "0.0.0-placeholder",
-  "description": "",
+  "description": "Typescript adsense module",
   "author": "Scott Cooper <scttcper@gmail.com>",
   "license": "MIT",
-  "repository": "",
+  "repository": "typectrl/react-adsense",
   "sideEffects": false,
   "keywords": [
     "typescript"
