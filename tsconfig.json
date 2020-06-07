@@ -1,0 +1,22 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "lib": ["es2020", "dom"],
+    "target": "es2020",
+    "module": "esnext",
+    "esModuleInterop": true,
+    "strict": true,
+    "newLine": "lf",
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react",
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "skipLibCheck": true
+  }
+}

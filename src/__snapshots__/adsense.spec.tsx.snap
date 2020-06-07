@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Adsense should be instantiable 1`] = `
+<ins
+  class="adsbygoogle ads-class"
+  data-ad-client="123"
+  data-ad-format="auto"
+  data-ad-layout=""
+  data-ad-layout-key=""
+  data-ad-slot="abc"
+  data-full-width-responsive="false"
+/>
+`;
