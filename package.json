@@ -64,7 +64,8 @@
     "typescript": "3.9.5"
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "roots": ["<rootDir>/src"]
   },
   "publishConfig": {
     "access": "public"

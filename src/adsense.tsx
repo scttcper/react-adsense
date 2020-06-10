@@ -9,6 +9,7 @@ type Props = {
   layoutKey?: string;
   format?: string;
   responsive?: string;
+  pageLevelAds?: boolean;
 };
 
 export const Adsense = ({
@@ -20,11 +21,21 @@ export const Adsense = ({
   layoutKey = '',
   format = 'auto',
   responsive = 'false',
+  pageLevelAds = false,
 }: Props) => {
   React.useEffect(() => {
-    if (window) {
-      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    const p: any = {};
+    if (pageLevelAds) {
+      p.google_ad_client = client;
+      p.enable_page_level_ads = true;
     }
+
+    try {
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    } catch {
+      // Pass
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
