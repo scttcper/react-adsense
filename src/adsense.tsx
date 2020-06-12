@@ -14,7 +14,7 @@ type Props = {
 
 export const Adsense = ({
   className = '',
-  style,
+  style = { display: 'block' },
   client,
   slot,
   layout = '',

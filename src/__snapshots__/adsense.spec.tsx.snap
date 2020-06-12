@@ -9,5 +9,6 @@ exports[`Adsense should be instantiable 1`] = `
   data-ad-layout-key=""
   data-ad-slot="abc"
   data-full-width-responsive="false"
+  style="display: block;"
 />
 `;
