@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 type Props = {
   className?: string;
@@ -23,7 +23,7 @@ export const Adsense = ({
   responsive = 'false',
   pageLevelAds = false,
 }: Props) => {
-  React.useEffect(() => {
+  useEffect(() => {
     const p: any = {};
     if (pageLevelAds) {
       p.google_ad_client = client;
@@ -31,7 +31,9 @@ export const Adsense = ({
     }
 
     try {
-      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      if (typeof window === 'object') {
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      }
     } catch {
       // Pass
     }
