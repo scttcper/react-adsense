@@ -1,5 +1,5 @@
 import React from 'react';
-import { Adsense } from '../../src';
+import { Adsense } from '../src';
 
 const App = () => {
   return (
@@ -37,11 +37,11 @@ const App = () => {
         </div>
       </div>
       <div className="-mt-16">
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:max-w-screen-md lg:px-8">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-3xl lg:px-8">
           <div className="bg-white shadow sm:rounded-lg">
             <div className="px-4 py-5 sm:p-6">
               <h3 className="text-lg leading-6 font-medium text-gray-900">Install</h3>
-              <div className="mt-2 max-w-xl text-sm leading-5 text-gray-600 font-mono">
+              <div className="mt-2 text-sm leading-5 text-gray-600 font-mono">
                 <pre><code>npm install @ctrl/react-adsense</code></pre>
               </div>
               <div className="mt-3 text-sm leading-5">
@@ -57,9 +57,9 @@ const App = () => {
 
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-lg leading-6 font-medium text-gray-900">Demo</h3>
-            <div className="mt-2 max-w-xl text-sm leading-5 text-gray-600">
+            <div className="mt-2 text-sm leading-5 text-gray-600">
               <p>Adblock must be disabled</p>
-              <div className="text-center adsbygoogle">
+              <div className="text-center adsbygoogle mt-2">
                 <Adsense client="ca-pub-7640562161899788" slot="7259870550"/>
               </div>
             </div>
