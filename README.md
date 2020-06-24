@@ -1,5 +1,7 @@
 # @ctrl/react-adsense [![npm](https://badgen.net/npm/v/@ctrl/react-adsense)](https://www.npmjs.com/package/@ctrl/react-adsense) [![CircleCI](https://badgen.net/github/status/typectrl/react-adsense)](https://circleci.com/gh/TypeCtrl/react-adsense) [![coverage status](https://badgen.net/codecov/c/github/typectrl/react-adsense)](https://codecov.io/gh/typectrl/react-adsense)
 
+DEMO: https://react-adsense.xmplaylist.com
+
 ### Install
 
 ```console
