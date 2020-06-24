@@ -1,4 +1,4 @@
-# @ctrl/react-adsense [![npm](https://img.shields.io/npm/v/@ctrl/react-adsense.svg?maxAge=3600)](https://www.npmjs.com/package/@ctrl/react-adsense) [![CircleCI](https://circleci.com/gh/TypeCtrl/react-adsense.svg?style=svg)](https://circleci.com/gh/TypeCtrl/react-adsense) [![coverage status](https://codecov.io/gh/typectrl/react-adsense/branch/master/graph/badge.svg)](https://codecov.io/gh/typectrl/react-adsense)
+# @ctrl/react-adsense [![npm](https://badgen.net/npm/v/@ctrl/react-adsense)](https://www.npmjs.com/package/@ctrl/react-adsense) [![CircleCI](https://badgen.net/github/status/typectrl/react-adsense)](https://circleci.com/gh/TypeCtrl/react-adsense) [![coverage status](https://badgen.net/codecov/c/github/typectrl/react-adsense)](https://codecov.io/gh/typectrl/react-adsense)
 
 ### Install
 
@@ -8,40 +8,36 @@ npm install @ctrl/react-adsense
 
 ### Use
 
+Use the standard AdSense code somewhere in your `<head></head>` as you [normally would](https://support.google.com/adsense/answer/7477845)
+
+```html
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+```
+
 ```tsx
 import React from 'react';
 import {Adsense} from 'react-adsense';
 
 // ads with no set-up
 <Adsense
-  client="ca-pub-7292810486004926"
-  slot="7806394673"
+  client="ca-pub-7640562161899788"
+  slot="7259870550"
 />
 
 // ads with custom format
 <Adsense
-  client="ca-pub-7292810486004926"
-  slot="7806394673"
-  style={{ width: 500, height: 300, float: 'left' }}
+  client="ca-pub-7640562161899788"
+  slot="7259870550"
+  style={{ width: 500, height: 300 }}
   format=""
 />
 
 // responsive and native ads
 <Adsense
-  client="ca-pub-7292810486004926"
-  slot="7806394673"
+  client="ca-pub-7640562161899788"
+  slot="7259870550"
   style={{ display: 'block' }}
   layout="in-article"
   format="fluid"
-/>
-
-// auto full width responsive ads
-<Adsense
-  client="ca-pub-7292810486004926"
-  slot="7806394673"
-  style={{ display: 'block' }}
-  format="auto"
-  responsive="true"
-  layoutKey="-gw-1+2a-9x+5c"
 />
 ```

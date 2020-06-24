@@ -20,6 +20,9 @@ jobs:
           name: lint
           command: npm run lint
       - run:
+          name: lint
+          command: npm run build:demo
+      - run:
           name: codecov
           command: bash <(curl -s https://codecov.io/bash)
   release:
