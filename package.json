@@ -58,7 +58,7 @@
     "eslint-config-xo-space": "0.25.0",
     "eslint-config-xo-typescript": "0.31.0",
     "eslint-plugin-react": "7.20.3",
-    "eslint-plugin-react-hooks": "4.0.5",
+    "eslint-plugin-react-hooks": "4.0.6",
     "jest": "26.1.0",
     "jest-junit": "11.0.1",
     "parcel": "1.12.4",
