@@ -2,3 +2,4 @@ dist
 .eslintrc.js
 pkg
 postcss.config.js
+build
