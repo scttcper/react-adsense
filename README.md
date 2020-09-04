@@ -18,7 +18,7 @@ Use the standard AdSense code somewhere in your `<head></head>` as you [normally
 
 ```tsx
 import React from 'react';
-import {Adsense} from 'react-adsense';
+import {Adsense} from '@ctrl/react-adsense';
 
 // ads with no set-up
 <Adsense
