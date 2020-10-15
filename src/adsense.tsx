@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import * as React from 'react';
 
 type Props = {
   className?: string;
@@ -23,7 +23,7 @@ export const Adsense = ({
   responsive = 'false',
   pageLevelAds = false,
 }: Props) => {
-  useEffect(() => {
+  React.useEffect(() => {
     const p: any = {};
     if (pageLevelAds) {
       p.google_ad_client = client;
@@ -37,7 +37,7 @@ export const Adsense = ({
     } catch {
       // Pass
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
