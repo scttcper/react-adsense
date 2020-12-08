@@ -22,6 +22,7 @@ export const Adsense = ({
   format = 'auto',
   responsive = 'false',
   pageLevelAds = false,
+  ...rest
 }: Props) => {
   useEffect(() => {
     const p: any = {};
@@ -50,6 +51,7 @@ export const Adsense = ({
       data-ad-layout-key={layoutKey}
       data-ad-format={format}
       data-full-width-responsive={responsive}
+      {...rest}
     />
   );
 };
