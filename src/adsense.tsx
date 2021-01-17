@@ -33,7 +33,7 @@ export const Adsense = ({
 
     try {
       if (typeof window === 'object') {
-        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(p);
       }
     } catch {
       // Pass
