@@ -42,7 +42,9 @@ const App = () => {
             <div className="px-4 py-5 sm:p-6">
               <h3 className="text-lg leading-6 font-medium text-gray-900">Install</h3>
               <div className="mt-2 text-sm leading-5 text-gray-600 font-mono">
-                <pre><code>npm install @ctrl/react-adsense</code></pre>
+                <pre>
+                  <code>npm install @ctrl/react-adsense</code>
+                </pre>
               </div>
               <div className="mt-3 text-sm leading-5">
                 <a
@@ -60,7 +62,7 @@ const App = () => {
             <div className="mt-2 text-sm leading-5 text-gray-600">
               <p>Adblock must be disabled</p>
               <div className="text-center adsbygoogle mt-2">
-                <Adsense client="ca-pub-7640562161899788" slot="7259870550"/>
+                <Adsense client="ca-pub-7640562161899788" slot="7259870550" />
               </div>
             </div>
           </div>

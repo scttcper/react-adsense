@@ -4,13 +4,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 );
-
-// @ts-expect-error
-if (module.hot) {
-  // @ts-expect-error
-  module.hot.accept();
-}

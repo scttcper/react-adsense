@@ -2,7 +2,10 @@
   "root": true,
   "env": {
     "browser": true,
-    "jest": true,
+    "jest": true
   },
-  "extends": ["@ctrl/eslint-config", "xo-react/space"]
+  "extends": ["xo-react/space", "@ctrl/eslint-config"],
+  "rules": {
+    "react/jsx-tag-spacing": "off"
+  }
 }
