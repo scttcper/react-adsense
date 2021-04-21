@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Adsense } from '../src';
 
 const App = () => {
