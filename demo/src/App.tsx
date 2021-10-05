@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Adsense } from '../src';
+import { Adsense } from '../../src';
 
 const App = () => {
   return (
