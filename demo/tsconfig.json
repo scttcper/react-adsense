@@ -4,6 +4,8 @@
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "Node",
+    "skipLibCheck": true,
+    "jsx": "react",
     "strict": true,
     "sourceMap": true,
     "resolveJsonModule": true,
