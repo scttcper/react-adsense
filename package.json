@@ -35,7 +35,7 @@
     "@jest/globals": "27.2.4",
     "@testing-library/jest-dom": "5.14.1",
     "@testing-library/react": "12.1.2",
-    "@types/node": "16.10.2",
+    "@types/node": "16.10.3",
     "@types/react": "17.0.27",
     "eslint-config-xo-react": "0.25.0",
     "eslint-plugin-react-hooks": "4.2.0",
