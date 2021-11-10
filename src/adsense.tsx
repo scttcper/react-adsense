@@ -11,6 +11,7 @@ type Props = {
   responsive?: string;
   // eslint-disable-next-line react/boolean-prop-naming
   pageLevelAds?: boolean;
+  adTest?: string;
 };
 
 export const Adsense = ({
@@ -23,6 +24,7 @@ export const Adsense = ({
   format = 'auto',
   responsive = 'false',
   pageLevelAds = false,
+  adTest,
   ...rest
 }: Props) => {
   useEffect(() => {
@@ -52,6 +54,7 @@ export const Adsense = ({
       data-ad-layout-key={layoutKey}
       data-ad-format={format}
       data-full-width-responsive={responsive}
+      date-adtest={adTest}
       {...rest}
     />
   );
