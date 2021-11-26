@@ -54,7 +54,7 @@ export const Adsense = ({
       data-ad-layout-key={layoutKey}
       data-ad-format={format}
       data-full-width-responsive={responsive}
-      date-adtest={adTest}
+      data-adtest={adTest}
       {...rest}
     />
   );
