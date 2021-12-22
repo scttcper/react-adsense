@@ -29,7 +29,9 @@
     "test:watch": "jest --watch",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tslib": "^1.14.1"
+  },
   "devDependencies": {
     "@ctrl/eslint-config": "3.1.2",
     "@jest/globals": "27.3.1",
