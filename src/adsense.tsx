@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-type Props = {
+interface Props {
   className?: string;
   style?: React.CSSProperties;
   client: string;
@@ -9,13 +9,12 @@ type Props = {
   layoutKey?: string;
   format?: string;
   responsive?: string;
-  // eslint-disable-next-line react/boolean-prop-naming
   pageLevelAds?: boolean;
   adTest?: string;
   children?: React.ReactNode;
-};
+}
 
-export const Adsense = ({
+export function Adsense({
   className = '',
   style = { display: 'block' },
   client,
@@ -28,7 +27,7 @@ export const Adsense = ({
   adTest,
   children,
   ...rest
-}: Props) => {
+}: Props) {
   useEffect(() => {
     const p: any = {};
     if (pageLevelAds) {
@@ -59,7 +58,7 @@ export const Adsense = ({
       data-adtest={adTest}
       {...rest}
     >
-      { children }
+      {children}
     </ins>
   );
-};
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Adsense } from '../../src';
 
-const App = () => {
+function App() {
   return (
     <>
       <div className="bg-gray-200 pb-16">
@@ -71,6 +71,6 @@ const App = () => {
       </div>
     </>
   );
-};
+}
 
 export default App;
