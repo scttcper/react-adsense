@@ -12,6 +12,7 @@ type Props = {
   // eslint-disable-next-line react/boolean-prop-naming
   pageLevelAds?: boolean;
   adTest?: string;
+  children?: React.ReactNode;
 };
 
 export const Adsense = ({
@@ -25,6 +26,7 @@ export const Adsense = ({
   responsive = 'false',
   pageLevelAds = false,
   adTest,
+  children,
   ...rest
 }: Props) => {
   useEffect(() => {
@@ -56,6 +58,8 @@ export const Adsense = ({
       data-full-width-responsive={responsive}
       data-adtest={adTest}
       {...rest}
-    />
+    >
+      { children }
+    </ins>
   );
 };
