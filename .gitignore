@@ -30,6 +30,7 @@ jspm_packages
 .node_repl_history
 .vscode/*
 !.vscode/launch.json
+!.vscode/settings.json
 .idea
 
 # build

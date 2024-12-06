@@ -10,18 +10,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: 'npm'
-      - run: npm ci
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v4
+
+      # https://github.com/wyvox/action-setup-pnpm
+      - uses: wyvox/action-setup-pnpm@v3
+        with: { node-version: 22, pnpm-version: 9 }
+
       - name: lint
-        run: npm run lint
+        run: pnpm run lint
+
       - name: test
-        run: npm run test:ci
+        run: pnpm run test:ci
+
+      # https://github.com/codecov/codecov-action
       - name: coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -35,12 +39,14 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
         with:
-          node-version: 20
-          cache: 'npm'
-      - run: npm ci
+          fetch-depth: 0
+
+      # https://github.com/wyvox/action-setup-pnpm
+      - uses: wyvox/action-setup-pnpm@v3
+        with: { node-version: 22, pnpm-version: 9 }
+
       - name: release
         run: npx semantic-release
         env:

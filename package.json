@@ -18,38 +18,37 @@
     "typescript"
   ],
   "scripts": {
-    "lint": "eslint --ext .js,.ts,.tsx .",
-    "lint:fix": "eslint --fix --ext .js,.ts,.tsx .",
+    "lint": "biome check . && eslint .",
+    "lint:fix": "biome check --apply . && eslint --fix .",
     "prepare": "npm run build",
     "build": "tsc -p tsconfig.build.json && tsc -p tsconfig.module.json",
-    "demo:build": "npm run build --workspace=demo",
-    "demo:watch": "npm run dev --workspace=demo",
+    "demo:build": "pnpm --filter demo-app build",
+    "demo:watch": "pnpm --filter demo-app dev",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ci": "vitest run --coverage --reporter=default --reporter=junit --outputFile=./junit.xml"
   },
   "dependencies": {
-    "tslib": "^2.5.0"
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@ctrl/eslint-config": "3.7.0",
-    "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "14.0.0",
-    "@types/node": "20.1.4",
-    "@types/react": "18.2.6",
-    "@vitest/coverage-c8": "0.31.0",
-    "c8": "7.13.0",
+    "@biomejs/biome": "1.9.4",
+    "@ctrl/eslint-config-biome": "4.2.16",
+    "@eslint/compat": "1.2.4 ",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.1.0",
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.0",
+    "@vitest/coverage-v8": "2.1.8",
     "eslint-config-xo-react": "0.27.0",
-    "eslint-plugin-react": "7.32.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "happy-dom": "9.18.3",
-    "react": "18.2.0",
-    "typescript": "5.0.4",
-    "vitest": "0.31.0"
+    "eslint-plugin-react": "7.37.2",
+    "eslint-plugin-react-hooks": "5.1.0",
+    "happy-dom": "15.11.7",
+    "react": "19.0.0",
+    "typescript": "5.7.2",
+    "vitest": "2.1.8",
+    "eslint": "9.16.0"
   },
-  "workspaces": [
-    "demo"
-  ],
   "publishConfig": {
     "access": "public",
     "provenance": true
