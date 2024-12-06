@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "javascript": {
+    "jsxRuntime": "reactClassic"
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": ["dist/*", "package.json", "build/*"]
+  },
+  "extends": ["@ctrl/eslint-config-biome/biome"]
+}
