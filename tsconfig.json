@@ -11,7 +11,7 @@
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "noEmitOnError": true,
     "noUnusedLocals": true,
     "declaration": true,
