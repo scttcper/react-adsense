@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEffect } from 'react';
 
 interface Props {
@@ -30,7 +29,6 @@ export function Adsense({
   children,
   ...rest
 }: Props) {
-  // biome-ignore lint/correctness/useExhaustiveDependencies: run only once
   useEffect(() => {
     const p: any = {};
     if (pageLevelAds) {
@@ -40,12 +38,12 @@ export function Adsense({
 
     try {
       if (typeof window === 'object') {
-        // biome-ignore lint/suspicious/noAssignInExpressions: adsense
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push(p);
       }
     } catch {
       // Pass
     }
+    // oxlint-disable-next-line exhaustive-deps
   }, []);
 
   return (

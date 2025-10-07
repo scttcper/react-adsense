@@ -1,10 +1,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "lib": ["es2020", "dom"],
     "target": "es2020",
-    "module": "esnext",
     "esModuleInterop": true,
     "strict": true,
     "newLine": "lf",
