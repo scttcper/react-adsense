@@ -4,10 +4,20 @@
   "description": "Typescript adsense module",
   "author": "Scott Cooper <scttcper@gmail.com>",
   "license": "MIT",
-  "repository": "scttcper/react-adsense",
-  "main": "dist/index.js",
-  "module": "dist/module/index.js",
-  "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scttcper/react-adsense.git"
+  },
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.mts"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist"
   ],
@@ -18,37 +28,53 @@
     "typescript"
   ],
   "scripts": {
-    "lint": "biome check . && eslint .",
-    "lint:fix": "biome check --apply . && eslint --fix .",
+    "lint": "oxlint . && prettier --check . --experimental-cli",
+    "lint:fix": "oxlint . --fix && prettier --write . --log-level=error --experimental-cli",
     "prepare": "npm run build",
-    "build": "tsc -p tsconfig.build.json && tsc -p tsconfig.module.json",
+    "build": "obuild",
     "demo:build": "pnpm --filter demo-app build",
     "demo:watch": "pnpm --filter demo-app dev",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ci": "vitest run --coverage --reporter=default --reporter=junit --outputFile=./junit.xml"
   },
-  "dependencies": {
-    "tslib": "^2.8.1"
-  },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@ctrl/eslint-config-biome": "4.2.16",
-    "@eslint/compat": "1.2.4 ",
-    "@testing-library/jest-dom": "6.6.3",
-    "@testing-library/react": "16.1.0",
-    "@types/node": "22.10.1",
-    "@types/react": "19.0.0",
-    "@vitest/coverage-v8": "2.1.8",
-    "eslint-config-xo-react": "0.27.0",
-    "eslint-plugin-react": "7.37.2",
-    "eslint-plugin-react-hooks": "5.1.0",
-    "happy-dom": "15.11.7",
-    "react": "19.0.0",
-    "typescript": "5.9.2",
-    "vitest": "2.1.8",
-    "eslint": "9.16.0"
+    "@ctrl/oxlint-config": "1.2.8",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.0",
+    "@trivago/prettier-plugin-sort-imports": "5.2.2",
+    "@types/node": "24.7.0",
+    "@types/react": "19.2.1",
+    "@vitest/coverage-v8": "3.2.4",
+    "happy-dom": "19.0.2",
+    "obuild": "0.2.1",
+    "oxlint": "1.20.0",
+    "prettier": "3.6.2",
+    "react": "19.2.0",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
   },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "avoid",
+    "semi": true,
+    "printWidth": 100,
+    "plugins": [
+      "@trivago/prettier-plugin-sort-imports"
+    ],
+    "importOrder": [
+      "^node:.*$",
+      "<THIRD_PARTY_MODULES>",
+      "^(@ctrl)(/.*|$)",
+      "^\\.\\./(?!.*\\.css$)",
+      "^\\./(?!.*\\.css$)(?=.*/)",
+      "^\\./(?!.*\\.css$)(?!.*/)"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": false
+  },
+  "packageManager": "pnpm@10.18.1",
   "publishConfig": {
     "access": "public",
     "provenance": true

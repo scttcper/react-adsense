@@ -11,11 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # https://github.com/wyvox/action-setup-pnpm
       - uses: wyvox/action-setup-pnpm@v3
-        with: { node-version: 22, pnpm-version: 9 }
+        with:
+          node-version: 24
 
       - name: lint
         run: pnpm run lint
@@ -28,27 +29,3 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-  publish:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref_name == 'master'
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      # https://github.com/wyvox/action-setup-pnpm
-      - uses: wyvox/action-setup-pnpm@v3
-        with: { node-version: 22, pnpm-version: 9 }
-
-      - name: release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "node": true
+  },
+  "plugins": ["react", "unicorn", "typescript", "oxc", "import"],
+  "extends": ["@ctrl/oxlint-config"]
+}

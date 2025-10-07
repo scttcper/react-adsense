@@ -1,1 +1,1 @@
-export { Adsense } from './adsense';
+export { Adsense } from './adsense.js';
