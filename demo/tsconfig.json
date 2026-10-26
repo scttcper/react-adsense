@@ -1,19 +1,10 @@
 {
+  "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
-    "skipLibCheck": true,
-    "jsx": "react",
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "rootDir": "..",
+    "types": ["vite/client"],
+    "noEmit": true
   },
-  "include": ["./src"]
+  "include": ["src", "../src", "vite.config.ts"],
+  "exclude": ["../src/**/*.spec.tsx"]
 }

@@ -1,11 +1,5 @@
 {
-  "editor.defaultFormatter": "biomejs.biome",
-  "[javascript][typescript][javascriptreact][typescriptreact]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.codeActionsOnSave": {
-      "quickfix.biome": "explicit",
-      "source.fixAll.eslint": "explicit"
-    }
-  }
+  "oxc.fmt.configPath": ".oxfmtrc.json",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true
 }

@@ -1,22 +1,7 @@
 {
-  "compileOnSave": false,
+  "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
-    "moduleResolution": "node",
-    "lib": ["es2020", "dom"],
-    "target": "es2020",
-    "module": "esnext",
-    "esModuleInterop": true,
-    "strict": true,
-    "newLine": "lf",
-    "noImplicitAny": false,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx",
-    "noEmitOnError": true,
-    "noUnusedLocals": true,
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "dist",
-    "skipLibCheck": true
-  }
+    "noEmit": true
+  },
+  "include": ["src", "*.ts"]
 }
