@@ -1,22 +1,31 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "moduleResolution": "node",
-    "lib": ["es2020", "dom"],
-    "target": "es2020",
-    "module": "esnext",
-    "esModuleInterop": true,
+    // tsdown bundles the package, tsc only type checks
+    "noEmit": true,
+    "module": "preserve",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "erasableSyntaxOnly": true,
+    "moduleDetection": "force",
+
+    // Matches the es2022 build target, so newer runtime APIs don't slip into what ships
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
+    "jsx": "react-jsx",
+    "types": [],
+
     "strict": true,
-    "newLine": "lf",
-    "noImplicitAny": false,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx",
-    "noEmitOnError": true,
     "noUnusedLocals": true,
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "dist",
+    "noUnusedParameters": true,
+    "noUncheckedSideEffectImports": true,
     "skipLibCheck": true
-  }
+  },
+  "include": ["src", "*.ts"]
 }
