@@ -1,5 +1,5 @@
 import { cleanup, render } from '@testing-library/react';
-import { createRef, StrictMode } from 'react';
+import { Activity, createRef, StrictMode } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { Adsense } from './index.ts';
@@ -33,6 +33,13 @@ describe('Adsense', () => {
     expect(ins?.hasAttribute('data-ad-layout')).toBe(false);
     expect(ins?.hasAttribute('data-ad-layout-key')).toBe(false);
     expect(ins?.hasAttribute('data-adtest')).toBe(false);
+  });
+
+  it('should not repeat adsbygoogle from className', () => {
+    const { container } = render(
+      <Adsense client="123" slot="abc" className="adsbygoogle custom" />,
+    );
+    expect(container.querySelector('ins')?.className).toBe('adsbygoogle custom');
   });
 
   it('should keep display block when given a style', () => {
@@ -83,12 +90,42 @@ describe('Adsense', () => {
     expect(ads.adsbygoogle).toEqual([{}, {}]);
   });
 
-  it('should ignore errors thrown by adsbygoogle.push()', () => {
+  it('should keep the same ad when <Activity> hides and shows it', () => {
+    const { container, rerender } = render(
+      <Activity mode="visible">
+        <Adsense client="123" slot="abc" />
+      </Activity>,
+    );
+    const ins = container.querySelector('ins');
+    rerender(
+      <Activity mode="hidden">
+        <Adsense client="123" slot="abc" />
+      </Activity>,
+    );
+    rerender(
+      <Activity mode="visible">
+        <Adsense client="123" slot="abc" />
+      </Activity>,
+    );
+    expect(container.querySelector('ins')).toBe(ins);
+    expect(ads.adsbygoogle).toEqual([{}]);
+  });
+
+  it('should ignore a throwing adsbygoogle.push() and not retry it in StrictMode', () => {
+    let pushes = 0;
     ads.adsbygoogle = {
       push() {
+        pushes += 1;
         throw new Error('TagError: adsbygoogle.push() error: No slot size for availableWidth=0');
       },
     };
-    expect(() => render(<Adsense client="123" slot="abc" />)).not.toThrow();
+    expect(() =>
+      render(
+        <StrictMode>
+          <Adsense client="123" slot="abc" />
+        </StrictMode>,
+      ),
+    ).not.toThrow();
+    expect(pushes).toBe(1);
   });
 });

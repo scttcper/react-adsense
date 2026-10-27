@@ -26,11 +26,22 @@ export interface AdsenseProps extends ComponentProps<'ins'> {
   readonly adTest?: string | undefined;
 }
 
+// The placeholder can't carry adsbygoogle even when className passes it, or AdSense would fill it
+function withoutAdsbygoogle(className = ''): string | undefined {
+  const names = className.split(/\s+/).filter(name => name !== '' && name !== 'adsbygoogle');
+  return names.length > 0 ? names.join(' ') : undefined;
+}
+
 export function Adsense(props: AdsenseProps): JSX.Element {
   // The server sends an empty <ins> with the same className and style, so a sized slot keeps its space
   return (
     <Suspense
-      fallback={<ins className={props.className} style={{ display: 'block', ...props.style }} />}
+      fallback={
+        <ins
+          className={withoutAdsbygoogle(props.className)}
+          style={{ display: 'block', ...props.style }}
+        />
+      }
     >
       <AdsenseIns {...props} />
     </Suspense>
@@ -52,6 +63,7 @@ function AdsenseIns({
   ...rest
 }: AdsenseProps): JSX.Element {
   use(inBrowser);
+  const otherClassNames = withoutAdsbygoogle(className);
 
   // Each push fills one <ins>, so only the first run pushes. StrictMode, <Activity> and prop
   // changes rerun this effect for the same <ins>, a new ad needs a remount (`key`).
@@ -74,7 +86,7 @@ function AdsenseIns({
 
   return (
     <ins
-      className={className ? `adsbygoogle ${className}` : 'adsbygoogle'}
+      className={otherClassNames ? `adsbygoogle ${otherClassNames}` : 'adsbygoogle'}
       style={{ display: 'block', ...style }}
       data-ad-client={client}
       data-ad-slot={slot}

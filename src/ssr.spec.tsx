@@ -43,6 +43,14 @@ describe('server rendering', () => {
     expect(ads.adsbygoogle).toBeUndefined();
   });
 
+  it('should keep adsbygoogle off the placeholder when className has it', async () => {
+    const { html } = await serverRender(
+      <Adsense client="123" slot="abc" className="adsbygoogle custom" />,
+    );
+    expect(html).toContain('<ins class="custom" style="display:block">');
+    expect(html).not.toContain('adsbygoogle');
+  });
+
   it('should hydrate without errors and push once', async () => {
     const app = (
       <main>
