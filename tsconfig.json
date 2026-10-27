@@ -1,7 +1,31 @@
 {
-  "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
-    "noEmit": true
+    // tsdown bundles the package, tsc only type checks
+    "noEmit": true,
+    "module": "preserve",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "erasableSyntaxOnly": true,
+    "moduleDetection": "force",
+
+    // Matches the es2022 build target, so newer runtime APIs don't slip into what ships
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
+    "jsx": "react-jsx",
+    "types": [],
+
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedSideEffectImports": true,
+    "skipLibCheck": true
   },
   "include": ["src", "*.ts"]
 }

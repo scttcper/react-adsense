@@ -1,4 +1,4 @@
-import { Adsense } from '../../src/index.js';
+import { Adsense } from '../../src/index.ts';
 
 function App() {
   return (

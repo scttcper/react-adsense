@@ -3,7 +3,7 @@ import { hydrateRoot, type Root } from 'react-dom/client';
 import { renderToReadableStream } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { Adsense } from './index.js';
+import { Adsense } from './index.ts';
 
 const ads = window as Window & { adsbygoogle?: unknown };
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;

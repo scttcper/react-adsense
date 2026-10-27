@@ -1,3 +1,3 @@
 'use client';
 
-export { Adsense, type AdsenseProps } from './adsense.js';
+export { Adsense, type AdsenseProps } from './adsense.tsx';

@@ -13,17 +13,17 @@ export interface AdsenseProps extends ComponentProps<'ins'> {
   /** `data-ad-slot`, the ad unit ID */
   readonly slot: string;
   /** `data-ad-layout`, e.g. `in-article` */
-  readonly layout?: string;
+  readonly layout?: string | undefined;
   /** `data-ad-layout-key`, used by in-feed ads */
-  readonly layoutKey?: string;
+  readonly layoutKey?: string | undefined;
   /** `data-ad-format`, pass `''` for fixed size ad units */
-  readonly format?: string;
+  readonly format?: string | undefined;
   /** `data-full-width-responsive` */
-  readonly responsive?: string;
+  readonly responsive?: string | undefined;
   /** Push `{ google_ad_client, enable_page_level_ads: true }` instead of `{}` */
-  readonly pageLevelAds?: boolean;
+  readonly pageLevelAds?: boolean | undefined;
   /** `data-adtest`, set to `on` while testing */
-  readonly adTest?: string;
+  readonly adTest?: string | undefined;
 }
 
 export function Adsense(props: AdsenseProps): JSX.Element {

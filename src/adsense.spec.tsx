@@ -2,7 +2,7 @@ import { cleanup, render } from '@testing-library/react';
 import { createRef, StrictMode } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { Adsense } from './index.js';
+import { Adsense } from './index.ts';
 
 const ads = window as Window & { adsbygoogle?: unknown };
 
@@ -27,7 +27,7 @@ describe('Adsense', () => {
   });
 
   it('should leave out attributes that are not set', () => {
-    const { container } = render(<Adsense client="123" slot="abc" />);
+    const { container } = render(<Adsense client="123" slot="abc" layout={undefined} />);
     const ins = container.querySelector('ins');
     expect(ins?.className).toBe('adsbygoogle');
     expect(ins?.hasAttribute('data-ad-layout')).toBe(false);
