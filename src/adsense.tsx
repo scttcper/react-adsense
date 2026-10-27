@@ -1,6 +1,11 @@
-import { useEffect, useRef, type ComponentProps, type JSX } from 'react';
+import { Suspense, use, useEffect, useRef, type ComponentProps, type JSX } from 'react';
+import { browser } from 'react-dom';
 
 type AdsWindow = Window & { adsbygoogle?: Array<Record<string, unknown>> };
+
+// Each push fills the first empty <ins class="adsbygoogle"> on the page, so a server rendered one
+// can be filled by another ad's push before React hydrates it. Only the browser renders the <ins>.
+const inBrowser = browser('@ctrl/react-adsense renders ads in the browser');
 
 export interface AdsenseProps extends ComponentProps<'ins'> {
   /** `data-ad-client`, your publisher ID (`ca-pub-…`) */
@@ -21,7 +26,18 @@ export interface AdsenseProps extends ComponentProps<'ins'> {
   readonly adTest?: string;
 }
 
-export function Adsense({
+export function Adsense(props: AdsenseProps): JSX.Element {
+  // The server sends an empty <ins> with the same className and style, so a sized slot keeps its space
+  return (
+    <Suspense
+      fallback={<ins className={props.className} style={{ display: 'block', ...props.style }} />}
+    >
+      <AdsenseIns {...props} />
+    </Suspense>
+  );
+}
+
+function AdsenseIns({
   className,
   style,
   client,
@@ -35,6 +51,8 @@ export function Adsense({
   children,
   ...rest
 }: AdsenseProps): JSX.Element {
+  use(inBrowser);
+
   // Each push fills one <ins>, so only the first run pushes. StrictMode, <Activity> and prop
   // changes rerun this effect for the same <ins>, a new ad needs a remount (`key`).
   const pushed = useRef(false);
